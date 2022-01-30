@@ -1,0 +1,91 @@
+<Rounded_button@Button>
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    color: ('#000000')
+    canvas.before:
+        Color:
+            rgba: (255/255, 255/255, 255/255, 1) if self.state == 'normal' else (240/255, 255/255, 255/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [16, 16, 16, 16]
+
+
+<Round_Icon_Button@Button>
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    color: ('#000000')
+    canvas.before:
+        Color:
+            rgba: (255/255, 255/255, 255/255, 1) if self.state == 'normal' else (240/255, 255/255, 255/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [20]
+    canvas.after:
+        Color:
+            rgb: C('#000000')
+
+
+<Rounded_text_input@TextInput>
+    font_size: '15px'
+    background_color: C('#FFFFFF')
+    background_normal: ''
+    background_active: ''
+    cursor_color: C('#000000')
+    canvas.before:
+        Color:
+            rgba: C('#000000')
+    canvas.after:
+        Color:
+            rgb: C('#FFFFFF')
+        Ellipse:
+            angle_start:180
+            angle_end:360
+            pos:(self.pos[0] - self.size[1] / 2.0, self.pos[1])
+            size: (self.size[1], self.size[1])
+        Ellipse:
+            angle_start:360
+            angle_end:540
+            pos: (self.size[0] + self.pos[0] - self.size[1] / 2.0, self.pos[1])
+            size: (self.size[1], self.size[1])
+        Color:
+            rgba: C('#000000')
+        Line:
+            width: 2.
+            points: self.pos[0] , self.pos[1], self.pos[0] + self.size[0], self.pos[1]
+        Line:
+            width: 2.
+            points: self.pos[0], self.pos[1] + self.size[1], self.pos[0] + self.size[0], self.pos[1] + self.size[1]
+        Line:
+            width: 2.
+            ellipse: self.pos[0] - self.size[1]/2.0, self.pos[1], self.size[1], self.size[1], 180, 360
+        Line:
+            width: 2.
+            ellipse: self.size[0] + self.pos[0] - self.size[1]/2.0, self.pos[1], self.size[1], self.size[1], 360, 540
+
+
+<Clean_button@Button>
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    color: ('#000000')
+    canvas.before:
+        Color:
+            rgba: (255/255, 255/255, 255/255, 1) if self.state == 'normal' else (240/255, 255/255, 255/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [12, 12, 12, 12]
+
+
+<Rounded_back_button@Button>
+    background_color: (0, 0, 0, 0)
+    background_normal: ''
+    color: ('#000000')
+    canvas.before:
+        Color:
+            rgba: (255/255, 255/255, 255/255, 1) if self.state == 'normal' else (240/255, 255/255, 255/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [8, 10, 8, 10]

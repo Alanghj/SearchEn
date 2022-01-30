@@ -1,0 +1,103 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import hex kivy.utils.get_color_from_hex
+
+
+<Third_window>:
+    id: screen_result
+    show_search: show_search
+    Result_search:
+        canvas:
+            Color:
+                rgb: [1,1,1,1]
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                texture: Gradient.vertical(get_color_from_hex("#D8D8D8"), get_color_from_hex("#DEDEDE"), get_color_from_hex("#E2E2E2"), get_color_from_hex("#EBEBEB"), get_color_from_hex("#F1F1F1"),)
+                
+        GridLayout:
+            cols: 1
+            rows: 2
+            size: root.width - 200, root.height -200
+            pos: 100, 100  
+
+            FloatLayout:
+                pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+                size_hint: 1, 1
+
+                Clean_button:
+                    text: ""
+                    font_size: 16
+                    pos_hint: {'center_y':.8, 'right':.580}
+                    size_hint: .160, 0.200
+                    on_press: root.clean_search()
+                    Image:
+                        source: 'imgs/trash-24.png'
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
+
+                Label:
+                    text_size: self.width, None
+                    pos_hint: {'center_y':.1, 'right': 1}
+                    size_hint: 1, 1
+                    height: self.texture_size[1]
+                    background_color: (1, 1, 1, 1)
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [9]
+                
+                ScrollView:
+                    pos_hint: {'center_y':.1, 'right': 1}
+                    do_scroll_x: False
+                    do_scroll_y: True
+
+                    scroll_y:1
+                    effect_cls: 'ScrollEffect'
+                    scroll_type: ['bars', 'content']
+                    smooth_scroll_end: 10
+
+
+                    scroll_timeout: 250
+                    scroll_distance: 20
+
+                    bar_color: [0/255,255/255,255/255, .9]
+                    bar_inactive_color: [0/255,255/255,255/255, .4] #Change later
+                    bar_width: 14
+                    
+                    
+                    Label:
+                        id: show_search
+                        text: root.labelText
+                        text_size: self.width, None
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        font_size: 18
+                        color:  [0, 0, 0, 1]
+                        background_color: (1, 1, 1, 1)
+                        canvas.before:
+                            Color:
+                                rgba: self.background_color
+                            RoundedRectangle:
+                                size: self.size
+                                pos: self.pos
+                                radius: [9]
+
+            FloatLayout:
+                pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+                size_hint: 1, 1
+
+                Rounded_back_button:
+                    text: ""
+                    font_size: 16
+                    pos_hint: {'center_y':.440, 'right': .200}
+                    size_hint: .200, 0.2
+                    on_press: 
+                        root.manager.current = 'screen_search'
+                        root.manager.transition.direction = "right"
+                    Image:
+                        source: 'imgs/back-24.png'
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y
