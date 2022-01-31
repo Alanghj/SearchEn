@@ -1,14 +1,5 @@
+from key.keys import API_KEY, SEARCH_ENGINE_ID
 import requests
-import json
-
-
-try:
-    f = open('data-base/keys.json')
-    data = json.load(f)
-    API_KEY = data['api_key']
-    SEARCH_ENGINE_ID = data['engine_id']  
-except KeyError as error:
-    print(error)
 
 
 def search_item(query_item:str):
