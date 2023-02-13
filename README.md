@@ -3,11 +3,14 @@
 ## Overview
 * A simple starting point for creating a search engine application.
 
-### Run locally
-Install dependencies ([virtualenv](http://virtualenv.readthedocs.org/en/latest/) is recommended.)
+### Virtual environment and Libraries in Windows:
 
-```python
-pip install requirements.txt
+```python 
+Windows:
+  python3 -m venv env
+  .\env\Scripts\activate
+  pip3 install -r requirements.txt
+  deactivate
 ```
 
 ### Get your API_KEY, and ENGINE_ID
@@ -42,7 +45,7 @@ pip install requirements.txt
     <tr>
         <td align="center">
             <a href="https://github.com/Alanghj">
-                <img src="https://user-images.githubusercontent.com/81534309/151803029-df474faf-bb04-4c5b-8b0d-072d7b4b40b1.png" width="150px;" alt="Image Alanghj" />
+                <img src="https://user-images.githubusercontent.com/81534309/218480249-255e240a-d7bc-4884-b7ac-bd9f00deb255.png" width="270px;" height="270px;" alt="Image Alanghj" />
                 <br />
                 <sub><b>Alanghj</b></sub>
             </a>
@@ -50,8 +53,5 @@ pip install requirements.txt
     </tr>
 </table>
 <h4 align="center">
-   Made by <a href="/" target="#"> Alanghj</a>
+   Made by <a href="https://github.com/Alanghj" target="#"> Alanghj</a>
 </h4>
-
-
-
