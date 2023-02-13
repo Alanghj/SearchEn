@@ -30,43 +30,44 @@ class Second_window(Screen):
     def __init__(self, **kwargs):
         super(Second_window, self).__init__(**kwargs)
         self.term_search = ObjectProperty(None)
+        self.search_items = search_item()
+
 
     def search_term(self):
         if self.term_search.text == '' or self.term_search.text == 'What do you want search for?':
             show_popup()
         else:
             open("content/content.txt", "w").close()
-            self.manager.get_screen('screen_result').show_search.text = ''
-            self.manager.get_screen('screen_result').labelText = ''
+            manager.get_screen('screen_result').show_search.text = ''
+            manager.get_screen('screen_result').labelText = ''
 
-            self.search_items = search_item
             self.search_items(self.term_search.text)
             
             self.term_search.text = 'What do you want search for?'
-            self.manager.current = 'screen_result'
-            self.manager.transition.direction = "left"
+            manager.current = 'screen_result'
+            manager.transition.direction = "left"
 
 
     def show_search(self):
-        with open('content/content.txt', 'r', encoding='utf-8') as f:
-            self.contents = f.read()
-        self.manager.get_screen('screen_result').labelText = self.contents
+        with open('content/content.txt', 'r', encoding='utf-8') as files:
+            contents = files.read()
+        manager.get_screen('screen_result').labelText = contents
         
      
 class Third_window(Screen):
     result_sr = Result_search()
     labelText = StringProperty('')
 
+
     def __init__(self, **kwargs):
         super(Third_window, self).__init__(**kwargs)
         self.show_search = ObjectProperty(None)
 
+
     def clean_search(self):
-        if self.ids.show_search.text != '':
+        if ids.show_search.text != '':
             open("content/content.txt", "w").close()
-            self.ids.show_search.text = ''
+            ids.show_search.text = ''
             self.labelText = ''
         else:
             show_popup_cleaned()
-
-
